@@ -1,14 +1,5 @@
 # Mihomo 代理管理工具 - 用于启动/停止代理服务和切换系统代理
 
-# 自提升为管理员
-if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-    # 重新以管理员身份启动当前脚本
-    Start-Process pwsh.exe -ArgumentList "-ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-    exit
-}
-# 保持工作目录一致，避免默认切换到 System32
-Set-Location $PSScriptRoot
-
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 # ==================== 配置区域 ====================
